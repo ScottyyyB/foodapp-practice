@@ -13,4 +13,3 @@ Feature: Displays articles
     Given I visit the "Landing" page
     Then I should see "Gandalf's tales"
     And I should see "Elf is twelve"
-    And show me the page

@@ -1,4 +1,9 @@
 <% @articles.each do |article| %>
-  <h1> <%= article.title %></h1>
-  <p> <%= article.content %></p>
+  <div id="article-<%= article.id %>">
+    <h1> <%= article.title %> </h1>
+    <p> <%= article.content %> </p>
+    <%= link_to 'Go to Article', article_path(article)%>
+  </div>
 <% end %>
+
+<%= link_to 'New Article', new_article_path %>
