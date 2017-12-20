@@ -37,7 +37,6 @@ def page_path_from(page_name)
   case page_name.downcase
     when 'landing' then root_path
     when 'new article' then new_article_path
-    when 'lmfao' then article_path(@article)
     when 'thomas' then article_path(@article)
   end
 end

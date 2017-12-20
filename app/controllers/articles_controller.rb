@@ -1,6 +1,7 @@
 class ArticlesController < ApplicationController
   def show
     @article = Article.find(params[:id])
+    @comment = @article.comments.new
   end
 
   def new
@@ -8,14 +9,14 @@ class ArticlesController < ApplicationController
   end
 
   def create
-    @article = Article.new(article_params())
-    @article.save ? article_created() : (render :new)
+    @article = Article.new(article_params)
+    @article.save ? article_created : (render 'new')
   end
 
   private
 
   def article_params
-    params[:article].permit(:title, :content)
+    params[:article].permit(:title, :content, :email)
   end
 
   def article_created

@@ -1,2 +1,22 @@
+<ul>
+  <% @comment.errors.full_messages.each do |error| %>
+    <li>
+      <%= error %>
+    </li>
+  <% end %>
+</ul>
+
 <h1> <%= @article.title %> </h1>
 <p> <%= @article.content %></p>
+<h4> <%="Written By: #{@article.email}" if @article.email %> </h4>
+
+<% @article.comments.each do |comment|%>
+  <p> <%= comment.body %> </p>
+<% end %>
+
+
+<%= form_for [@article, @comment] do |f| %>
+  <%= f.label :body %>
+  <%= f.text_area :body %>
+  <%= f.submit %>
+<% end %>
